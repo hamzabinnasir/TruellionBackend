@@ -29,7 +29,7 @@ const sendEmail = async (options) => {
   }
 
   const message = {
-    from: `${process.env.FROM_NAME || 'TrueLlion System'} <${process.env.FROM_EMAIL || 'noreply@truellion.com'}>`,
+    from: `${process.env.FROM_NAME || 'Truellion Technologies'} <${process.env.FROM_EMAIL || 'noreply@truellion.com'}>`,
     to: options.email,
     subject: options.subject,
     text: options.message,
@@ -38,12 +38,12 @@ const sendEmail = async (options) => {
 
   const info = await transporter.sendMail(message);
   console.log('Message sent: %s', info.messageId);
-  
+
   const previewUrl = nodemailer.getTestMessageUrl(info);
   if (previewUrl) {
     console.log('Preview URL: %s', previewUrl);
   }
-  
+
   return previewUrl;
 };
 
